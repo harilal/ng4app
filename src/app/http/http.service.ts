@@ -15,7 +15,7 @@ export class HttpService extends Http {
 	private count = 0;
 	private complete = 0;
 	BASE_URL: string = "https://logicapi.herokuapp.com/api/";
-	//BASE_URL: string = "https:/api1.karisoft.com/";
+
 	constructor(_backend: XHRBackend, _defaultOptions: RequestOptions) {
 		super(_backend, _defaultOptions)
 	}
@@ -32,7 +32,7 @@ export class HttpService extends Http {
 			options.headers.append('Accept', 'application/json');
 		}*/
 		console.log("gffd", options)
-		return super.request(url, this.getRequestOptionArgs());
+		return super.request(url, this.getRequestOptionArgs(options));
 	}
 	get(url: string, options?: HttpObject): Observable<Response> {
 		if ((options && options.global) || !options) {
